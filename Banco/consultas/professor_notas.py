@@ -1,4 +1,3 @@
-# Arquivo: consultas/professor_notas.py
 import tkinter as tk
 from tkinter import messagebox, ttk
 

@@ -1,4 +1,3 @@
-
 # Gerencia as operações de CRUD para a entidade DEPARTAMENTO.
 
 import tkinter as tk

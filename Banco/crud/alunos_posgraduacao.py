@@ -1,4 +1,3 @@
-
 # Gerencia as operações de CRUD para a subclasse ALUNO_POS_GRADUACAO.
 
 import tkinter as tk

@@ -7,7 +7,7 @@ import mysql.connector
 # Importa a função de login do banco de dados
 from login_mysql import login_bd
 from login_sistema import login_sistema # Importa a proxima tela
-
+## Adiciona o diretório pai do script atual ao sys.path para importação de módulos.
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 def iniciar_sistema():

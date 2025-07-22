@@ -3,7 +3,6 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
 
-
 def abrir_consulta_aluno(conexao, matricula_pre_definida=None):
     """
     Cria a interface para consultar os dados de um aluno.

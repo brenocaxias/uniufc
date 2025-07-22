@@ -2,11 +2,14 @@ import tkinter as tk
 from tkinter import ttk, messagebox, simpledialog
 
 def abrir_matriculas(conexao):
+    ## Função para listar as matrículas de um aluno específico
     def listar_matriculas():
         for row in tree.get_children():
             tree.delete(row)
         matricula_aluno = entry_aluno_id.get()
+        # Verifica se o campo da matrícula do aluno não está vazio.
         if not matricula_aluno:
+            # Exibe um aviso se a matrícula não for fornecida.
             messagebox.showwarning("Atenção", "Digite a matrícula do aluno.")
             return
         try:
@@ -17,13 +20,17 @@ def abrir_matriculas(conexao):
                 JOIN DISCIPLINA D ON M.codigo_disciplina = D.codigo
                 WHERE M.matricula_aluno = %s
             """, (matricula_aluno,))
+            # Itera sobre todas as linhas de resultado da consulta.
             for nome, nota, freq in cursor.fetchall():
                 tree.insert("", "end", values=(nome, nota, f"{freq}%"))
         except Exception as e:
             messagebox.showerror("Erro", f"Erro ao buscar matrículas:\n{e}")
 
+    # Função para adicionar uma nova matrícula
     def adicionar_matricula():
+        # Obtém a matrícula do aluno do campo de entrada.
         matricula_aluno = entry_aluno_id.get()
+        # Verifica se o usuário não cancelou nenhum dos diálogos (retorna None)
         if not matricula_aluno:
             messagebox.showwarning("Atenção", "Digite a matrícula do aluno.")
             return
@@ -41,6 +48,7 @@ def abrir_matriculas(conexao):
         except Exception as e:
             messagebox.showerror("Erro", f"Erro ao adicionar matrícula:\n{e}")
 
+    # Função para editar uma matrícula existente.
     def editar_matricula():
         matricula_aluno = entry_aluno_id.get()
         if not matricula_aluno:
@@ -61,6 +69,7 @@ def abrir_matriculas(conexao):
         except Exception as e:
             messagebox.showerror("Erro", f"Erro ao editar matrícula:\n{e}")
 
+    # Função para excluir uma matrícula.
     def excluir_matricula():
         matricula_aluno = entry_aluno_id.get()
         if not matricula_aluno:

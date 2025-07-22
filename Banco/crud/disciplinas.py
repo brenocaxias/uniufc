@@ -1,4 +1,3 @@
-
 # Gerencia as operações de CRUD para a entidade DISCIPLINA,
 # incluindo o gerenciamento de pré-requisitos (relacionamento N:M recursivo).
 
